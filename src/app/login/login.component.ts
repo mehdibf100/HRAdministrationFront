@@ -16,6 +16,20 @@ export class LoginComponent {
     email:"",
     password:"",
   }
+  togglePassword() {
+    const passwordInput = document.querySelector('.password-wrapper input') as HTMLInputElement;
+    const passwordToggleIcon = document.querySelector('.password-toggle') as HTMLElement;
+
+    if (passwordInput.type === 'password') {
+      passwordInput.type = 'text';
+      passwordToggleIcon.classList.remove('fa-eye');
+      passwordToggleIcon.classList.add('fa-eye-slash');
+    } else {
+      passwordInput.type = 'password';
+      passwordToggleIcon.classList.remove('fa-eye-slash');
+      passwordToggleIcon.classList.add('fa-eye');
+    }
+  }
   Login() {
     this.authService.login(this.user).subscribe(
       (res: any) => {

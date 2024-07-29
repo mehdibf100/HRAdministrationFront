@@ -1,27 +1,29 @@
-.contain{
+.contain {
   display: flex;
-  justify-content: center;}
-.logo
-{
-  width:min(100%,950px);
+  justify-content: center;
+}
 
+.logo {
+  width: min(100%, 950px);
   box-shadow: 50;
   border: 1px gainsboro;
   border-radius: 7%;
 }
-.weebe{
+
+.weebe {
   width: 500px;
   box-shadow: 2px 2px 2px 2px #d1d1d1;
   border: 1px gainsboro;
   border-radius: 5px;
-
 }
-.form{
+
+.form {
   margin-top: 40px;
   display: flex;
   justify-content: center;
-  }
-.login{
+}
+
+.login {
   width: 270px;
   height: 350px;
   box-shadow: 2px 2px 2px 2px #d1d1d1;
@@ -29,110 +31,181 @@
   border-radius: 15px;
   padding-left: 30px;
 }
-span{
+
+span {
   font-weight: 700;
-  font-family:'Nunito';
-  font-size:21px;
+  font-family: 'Nunito';
+  font-size: 21px;
   color: #38455d;
 }
-.img-log{
-  margin: 0px 50px;
+
+.img-log {
+  display: block;
+  margin-left: 70px;
+  margin-right: auto;
+  width: 40%;
 }
+
 .social-icons {
   margin-top: 0;
   text-align: end;
   margin-top: 20px;
 }
+
 .social-icons a {
-  margin-left:10px;
+  margin-left: 10px;
   color: #a8a8a8;
   text-decoration: none;
   font-size: 20px;
 }
-.btn{
+
+.btn {
   width: 250px;
   height: 35px;
   border-radius: 30px;
   background-color: #69dbff;
   border: none;
-  margin:0;
+  margin: 0;
   text-align: center;
-  color:white;
-  font-family:'Nunito';
+  color: white;
+  font-family: 'Nunito';
   font-size: 14px;
   font-weight: 600;
+  margin-top: 15px;
 }
-.log{
-  font-size: 21px;
+
+.log {
+  font-size: 15px;
   font-family: 'Nunito';
   font-weight: 700;
   color: rgb(56, 69, 93);
-
 }
-button samp i{
+
+button samp i {
   float: inline-end;
   margin-right: 10px;
   margin-top: 3px;
 }
-.forGetPass{
+
+.forGetPass {
   font-size: 10px;
   font-weight: 400;
-  color:rgb(100, 114, 140);
+  color: rgb(100, 114, 140);
   font-family: 'Nunito';
+  text-align: center; 
+  display: block;
+  margin-top: 10px;
+  margin-right: 15px;
 }
-a{
-  text-decoration:none;
+
+a {
+  text-decoration: none;
 }
-.pass{
-  color:  rgb(56, 69, 93);
+
+.pass {
+  color: rgb(56, 69, 93);
   font-weight: 700;
   font-family: 'Nunito';
 }
-.formulaire input{
-width: 210px;
-height: 30px;
-margin-bottom: 10px;
-border: 0.5px solid rgb(100, 114, 140);
-border-radius: 5px;
-font-size: 11px;
-outline: none;
+
+.formulaire input {
+  width: 210px;
+  height: 30px;
+  border: 0.5px solid rgb(100, 114, 140);
+  border-radius: 5px;
+  font-size: 11px;
+  outline: none;
+  margin-bottom: 5px;
 }
+
 .formulaire input:focus {
   border: 0.5px solid #ff9100f8;
 }
-.formulaire i{
-margin-right: 5px;
-color: rgb(56, 69, 93);
+
+.formulaire input:valid {
+  border-color: #5cb85c;
 }
-.formulaire samp i{
+
+.formulaire input:invalid {
+  border-color: #d9534f; 
+}
+
+.formulaire i {
+  margin-right: 5px;
+  color: rgb(56, 69, 93);
+}
+
+.formulaire samp i {
   color: rgb(255, 255, 255);
-  }
-  footer {
-    text-align: center;
-    padding: 20px 0;
-    font-size: 10px;
-    color: #555;
+}
+
+footer {
+  text-align: center;
+  padding: 20px 0;
+  font-size: 10px;
+  color: #555;
 }
 
 footer p {
-    margin: 10px 0;
+  margin: 10px 0;
 }
 
 .social-icons {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .social-icons a {
-    margin: 0 5px;
-    color: #989898;
-    text-decoration: none;
-    font-size: 18px;
+  margin: 0 5px;
+  color: #989898;
+  text-decoration: none;
+  font-size: 18px;
 }
 
 .social-icons a:hover {
-    color: #000;
+  color: #000;
 }
 
-input::content{
-  padding-left:15px;
+input::content {
+  padding-left: 15px;
+}
+
+.error {
+  color: #d9534f;
+  font-size: 0.6em;
+  height: 0px;
+  margin-left: 16px;
+}
+
+input.ng-invalid.ng-touched {
+  border-color: #d9534f;
+}
+
+
+.password-wrapper i.password-toggle {
+  position: absolute;
+  right: 25px;
+  top: 45%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 15px;
+  color :rgb(56, 69, 93);
+}
+.password-wrapper {
+  position: relative; 
+}
+
+
+.password-wrapper input {
+  position: relative;
+  width: 210px;
+  height: 30px;
+  margin-bottom: 3px;
+  border: 0.5px solid rgb(100, 114, 140);
+  border-radius: 5px;
+  font-size: 11px;
+  outline: none;
+}
+
+.password-wrapper input:focus {
+  border: 0.5px solid #ff9100f8;
 }

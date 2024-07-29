@@ -1,30 +1,63 @@
 <div class="container">
-<div class="contain">
-  <div class="weebe">
-    <img class="logo" src="https://wimbee.orangehrmlive.com/webres_66540bd69c25b3.45576835/themes/default2/images/login/logo.png" alt="">
-
+  <div class="contain">
+    <div class="weebe">
+      <img class="logo" src="https://wimbee.orangehrmlive.com/webres_66540bd69c25b3.45576835/themes/default2/images/login/logo.png" alt="">
+    </div>
   </div>
-</div>
-<div class="form">
-  <div class="login">
-    <img class="img-log" src="https://wimbee.orangehrmlive.com/webres_66540bd69c25b3.45576835/themes/default2/images/login/oxd/orangehrm-logo.png" width="130px" alt="">
-    <p class="log"><i class="fa-solid fa-arrow-right-to-bracket"></i> Login</p>
-    <form class="formulaire">
-      <i id="user" class="fa-regular fa-user"></i> <input type="text" [(ngModel)]="user.email"  [ngModelOptions]="{standalone: true}" class="username" placeholder="Username"><br>
-      <i class="fa-solid fa-lock"></i><input [(ngModel)]="user.password" type="password"  [ngModelOptions]="{standalone: true}" class="password" placeholder="Password">
-    <button class="btn" (click)="Login()"><samp>Login<i class="fa-solid fa-arrow-right-to-bracket"></i></samp></button><br>
-  </form>
-   <samp class="forGetPass"> <a href="#">Forgot Your <samp class="pass">Password?</samp> </a></samp>
+  <div class="form">
+    <div class="login">
+      <img class="img-log" src="https://icons.veryicon.com/png/o/miscellaneous/icon-icon-of-ai-intelligent-dispensing/login-user-name-1.png" width="80px" alt="">
+      <p class="log"><i class="fa-solid fa-arrow-right-to-bracket"></i> Login</p>
+      <form class="formulaire" (ngSubmit)="Login()" #loginForm="ngForm">
+        <i id="user" class="fa-regular fa-user"></i>
+        <input
+          type="email"
+          [(ngModel)]="user.email"
+          ngModel [email]="true"
+          [ngModelOptions]="{ standalone: true }"
+          name="email"
+          #email="ngModel"
+          class="email"
+          placeholder="Email"
+          required
+        />
+        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="error">
+          <div *ngIf="email.errors?.['email']">Please enter a valid email address.</div>
+          <div *ngIf="email.errors?.['required']">Email is required.</div>
+        </div>
+        <br>
+        <div class="password-wrapper">
+          <i class="fa-solid fa-lock"></i>
+          <input
+            type="password"
+            [(ngModel)]="user.password"
+            [ngModelOptions]="{ standalone: true }"
+            name="password"
+            #password="ngModel"
+            class="password"
+            placeholder="Password"
+            required
+            minlength="6"
+          />
+          <i class="fa-regular fa-eye password-toggle" (click)="togglePassword()"></i>
+        </div>
+        <div *ngIf="password.invalid && (password.dirty || password.touched)" class="error">
+          <div *ngIf="password.errors?.['required']">Password is required.</div>
+          <div *ngIf="password.errors?.['minlength']">Password must be at least 6 characters long.</div>
+        </div>
+        <button class="btn" type="submit"><samp>Login<i class="fa-solid fa-arrow-right-to-bracket"></i></samp></button>
+        <br>
+      </form>
+      <samp class="forGetPass"><a href="#">Forgot Your <samp class="pass">Password?</samp> </a></samp>
+    </div>
   </div>
-</div>
-<footer>
-  <p>OrangeHRM 7.13-VAS</p>
-  <p>WIMBEE ESPAGNE, S.L.U © 2005 - 2024 OrangeHRM, Inc. All rights reserved.</p>
-  <div class="social-icons">
-      <a href="#"><i class="fab fa-linkedin"></i></a>
-      <a href="#"><i class="fab fa-facebook"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-youtube"></i></a>
-  </div>
-</footer>
+  <footer>
+    <p>WIMBEE ESPAGNE, S.L.U © 2005 - 2024, Inc. All rights reserved.</p>
+    <div class="social-icons">
+      <a href="https://www.linkedin.com/company/wimbeetech/" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://www.facebook.com/wimbeetech" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://x.com/wimbeetech1" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.instagram.com/wimbeetech/" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+  </footer>
 </div>
