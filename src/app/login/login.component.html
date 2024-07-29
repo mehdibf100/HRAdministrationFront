@@ -1,0 +1,30 @@
+<div class="container">
+<div class="contain">
+  <div class="weebe">
+    <img class="logo" src="https://wimbee.orangehrmlive.com/webres_66540bd69c25b3.45576835/themes/default2/images/login/logo.png" alt="">
+
+  </div>
+</div>
+<div class="form">
+  <div class="login">
+    <img class="img-log" src="https://wimbee.orangehrmlive.com/webres_66540bd69c25b3.45576835/themes/default2/images/login/oxd/orangehrm-logo.png" width="130px" alt="">
+    <p class="log"><i class="fa-solid fa-arrow-right-to-bracket"></i> Login</p>
+    <form class="formulaire">
+      <i id="user" class="fa-regular fa-user"></i> <input type="text" [(ngModel)]="user.email"  [ngModelOptions]="{standalone: true}" class="username" placeholder="Username"><br>
+      <i class="fa-solid fa-lock"></i><input [(ngModel)]="user.password" type="password"  [ngModelOptions]="{standalone: true}" class="password" placeholder="Password">
+    <button class="btn" (click)="Login()"><samp>Login<i class="fa-solid fa-arrow-right-to-bracket"></i></samp></button><br>
+  </form>
+   <samp class="forGetPass"> <a href="#">Forgot Your <samp class="pass">Password?</samp> </a></samp>
+  </div>
+</div>
+<footer>
+  <p>OrangeHRM 7.13-VAS</p>
+  <p>WIMBEE ESPAGNE, S.L.U © 2005 - 2024 OrangeHRM, Inc. All rights reserved.</p>
+  <div class="social-icons">
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+  </div>
+</footer>
+</div>

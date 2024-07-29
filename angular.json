@@ -35,10 +35,13 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "public",
+                "output": "assets/images"
               }
-            ],
+            ]
+            ,
             "styles": [
+              "@angular/material/prebuilt-themes/azure-blue.css",
               "src/styles.scss"
             ],
             "scripts": [],
@@ -103,6 +106,7 @@
               }
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/azure-blue.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -110,5 +114,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "413f3361-fbee-43bd-ad7b-c8d9f3b6b795"
   }
 }
