@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrl: './dashboard-hr.component.scss'
 })
 export class DashboardHrComponent {
-
+ 
 }

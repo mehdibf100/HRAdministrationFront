@@ -9,12 +9,16 @@ import { AdminGuard } from './guards/admin.guard';
 import { AdminHRGuard } from './guards/admin-hr.guard';
 import { EmployeeGuard } from './guards/employee.guard';
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'admin-dashboard', component: DashboardAdminComponent, canActivate: [AuthGuard , AdminGuard]   },
   { path: 'admin-hr-dashboard', component: DashboardHrComponent, canActivate: [AuthGuard , AdminHRGuard] },
   { path: 'employee-dashboard', component: DashboardClientComponent, canActivate: [AuthGuard , EmployeeGuard] },
+  {path:'reset-password', component: ResetPasswordComponent},
+  {path:'forgot-password', component: ForgotPasswordComponent},
   {path: 'unauthorized',component:UnauthorizedComponent},
   { path: '', redirectTo: '/login', pathMatch: 'full' },
 ];

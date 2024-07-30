@@ -16,7 +16,13 @@ export class AuthService {
       .pipe(
         catchError(this.handleError)
       );
+
   }
+
+  forgotpassword(email: string): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}/forgotpassword`, { email })
+  }
+
 
   private handleError(error: HttpErrorResponse): Observable<never> {
     let errorMsg = 'An unknown error occurred!';
