@@ -8,18 +8,17 @@
     <div class="login">
       <img class="img-log" src="https://icons.veryicon.com/png/o/miscellaneous/icon-icon-of-ai-intelligent-dispensing/login-user-name-1.png" width="80px" alt="">
       <p class="log"><i class="fa-solid fa-arrow-right-to-bracket"></i> Login</p>
-      <form class="formulaire" (ngSubmit)="Login()" #loginForm="ngForm">
+      <form class="formulaire" (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
         <i id="user" class="fa-regular fa-user"></i>
         <input
           type="email"
           [(ngModel)]="user.email"
-          ngModel [email]="true"
-          [ngModelOptions]="{ standalone: true }"
           name="email"
           #email="ngModel"
           class="email"
           placeholder="Email"
           required
+          email
         />
         <div *ngIf="email.invalid && (email.dirty || email.touched)" class="error">
           <div *ngIf="email.errors?.['email']">Please enter a valid email address.</div>
@@ -31,13 +30,12 @@
           <input
             type="password"
             [(ngModel)]="user.password"
-            [ngModelOptions]="{ standalone: true }"
             name="password"
             #password="ngModel"
             class="password"
             placeholder="Password"
             required
-            minlength="6"
+            minlength="4"
           />
           <i class="fa-regular fa-eye password-toggle" (click)="togglePassword()"></i>
         </div>

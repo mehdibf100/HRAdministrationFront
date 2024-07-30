@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthServiceService } from '../auth-service.service';
+import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 
@@ -9,9 +9,8 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrl: './dashboard-client.component.scss'
 })
 export class DashboardClientComponent{
-  constructor(private  authService: AuthServiceService,private router: Router) {
+  constructor(private  authService: AuthService,private router: Router) {
   }  logout() {
-    this.authService.logout();
    this.router.navigate(['/login']);
   }
 
