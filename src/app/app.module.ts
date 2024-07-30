@@ -14,6 +14,7 @@ import { JwtInterceptor, JwtModule } from '@auth0/angular-jwt';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
 import { DashboardHrComponent } from './dashboard-hr/dashboard-hr.component';
+import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 
 export function tokenGetter() {
   return localStorage.getItem('currentUser') ? JSON.parse(localStorage.getItem('currentUser')!).token : null;
@@ -25,6 +26,7 @@ export function tokenGetter() {
     LoginComponent,
     DashboardAdminComponent,
     DashboardHrComponent,
+    UnauthorizedComponent,
   ],
   imports: [
     BrowserModule,

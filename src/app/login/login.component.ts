@@ -3,7 +3,7 @@ import { AuthService } from '../services/auth.service';
 import { StorageService } from '../services/storage.service';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { jwtDecode } from "jwt-decode";
+import {jwtDecode} from 'jwt-decode';
 
 interface JwtPayload {
   role: { authority: string }[];
@@ -22,7 +22,6 @@ export class LoginComponent {
     email: '',
     password: ''
   };
-  isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
   role: string = ''; 
@@ -55,9 +54,6 @@ export class LoginComponent {
       this.authService.login(email, password).subscribe({
         next: data => {
           this.storageService.saveUser(data);
-
-          this.isLoginFailed = false;
-          this.isLoggedIn = true;
 
           const token = data.token;
           if (token) {
