@@ -5,12 +5,11 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { jwtDecode } from "jwt-decode";
 
-// Define the type of the JWT token payload
 interface JwtPayload {
   role: { authority: string }[];
-  sub: string;  // Subject (user email)
-  iat: number;  // Issued at
-  exp: number;  // Expiration
+  sub: string;  
+  iat: number;  
+  exp: number;  
 }
 
 @Component({
@@ -26,7 +25,7 @@ export class LoginComponent {
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
-  role: string = ''; // Role extracted from token
+  role: string = ''; 
 
   constructor(
     private authService: AuthService,
@@ -64,7 +63,6 @@ export class LoginComponent {
           if (token) {
             try {
               const decodedToken: JwtPayload = jwtDecode(token);
-              // Extract role from the decoded token
               if (decodedToken.role && decodedToken.role.length > 0) {
                 this.role = decodedToken.role[0].authority;
               }
