@@ -16,14 +16,21 @@ export class AuthService {
       .pipe(
         catchError(this.handleError)
       );
-
   }
 
   forgotpassword(email: string): Observable<any> {
-    return this.http.post<any>(`${this.baseUrl}/forgotpassword`, { email })
+    return this.http.post(`${this.baseUrl}/forgot-password`, email, { responseType: 'text' })
+      .pipe(
+        catchError(this.handleError)
+      );
   }
-
-
+  resetPassword(token: string, newPassword: string): Observable<any> {
+    return this.http.post(`${this.baseUrl}/reset-password`, { token, newPassword }, { responseType: 'text' })
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+  
   private handleError(error: HttpErrorResponse): Observable<never> {
     let errorMsg = 'An unknown error occurred!';
     if (error.status === 401) {

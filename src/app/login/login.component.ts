@@ -3,7 +3,8 @@ import { AuthService } from '../services/auth.service';
 import { StorageService } from '../services/storage.service';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import {jwtDecode} from 'jwt-decode';
+import {jwtDecode } from 'jwt-decode';
+import Swal from 'sweetalert2';  
 
 interface JwtPayload {
   role: { authority: string }[];
@@ -73,6 +74,36 @@ export class LoginComponent {
         error: err => {
           this.errorMessage = err;
           this.isLoginFailed = true;
+
+          if (err.status === 401) {
+            Swal.fire({
+              title: "Login Failed",
+              text: 'Please check your credentials and try again.',
+              icon: "error",
+              width: 400, 
+              padding: "1em", 
+              color: "#d9534f", 
+              background: "#fff", 
+              showConfirmButton: false,
+              timer: 1500
+            });
+  
+                      } else {
+                        Swal.fire({
+                          position: "center",
+                          title: "Login Failed",
+                          text: 'Please check your credentials and try again.',
+                          icon: "error",
+                          width: 300,
+                          padding: "1em", 
+                          color: "#d9534f",
+                          background: "#fff",
+                          showConfirmButton: false,
+                          timer: 1500,
+                                                  
+                        });
+              
+          }
         }
       });
     }

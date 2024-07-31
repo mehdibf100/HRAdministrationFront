@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-forgot-password',
@@ -23,11 +24,23 @@ export class ForgotPasswordComponent {
   onSubmit(): void {
     if (this.forgotForm.valid) {
       this.authService.forgotpassword(this.forgotForm.value.email).subscribe(
-        () => {
-          alert('Password reset link sent to your email');
+        (response) => {
+          Swal.fire({
+            icon: 'success',
+            title: response,
+            text: 'Check your email ',
+            confirmButtonText: 'OK'
+          });
         },
         error => {
           console.error('Error sending password reset link:', error);
+            Swal.fire({
+            icon: 'error',
+            title: 'Email Verification Required',
+            text: 'Please verify your email address.',
+            confirmButtonText: 'OK'
+          });
+
         }
       );
     }
